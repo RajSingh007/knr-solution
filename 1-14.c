@@ -1,24 +1,19 @@
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 int main()
 {
-	int c,d,i;
-	while((c=getchar())!='\n')
-	 { d=0;
-	      while((c=getchar())!='\n') 
-	    {
-	      if(c!=' ')
-	      d=d+1;
-	      else
-	      break;
-	    }
-	    d++;
-	    printf("| ");
-		for(i=0;i<d;i++)
-		{
-		printf("*");
-	    }
-	    printf("=%d",d);
-	printf("\n");
+	int c,i,j;
+	int chr[128];
+	for(i=0;i<128;++i)
+	chr[i]=0;
+	while((c=getchar())!=EOF)
+	++chr[c];
+	for(i=0;i<128;++i)
+	{
+		putchar(i);
+		for(j=0;j<chr[i];++j)
+		putchar('*');
+		putchar('\n');
 	}
 	return 0;
 }
